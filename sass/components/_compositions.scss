@@ -1,0 +1,55 @@
+.composition {
+  &-photo {
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
+    position: absolute;
+    z-index: 10;
+    outline-offset: 2rem;
+    transition: all 0.2s;
+
+    @include respond(tab-port) {
+      float: left;
+      width: 33.3333333%;
+      position: relative;
+      box-shadow: 0 1.5rem 3rem rgba($color-black, 0.2);
+    }
+    &-p1 {
+      left: 0;
+      top: -2rem;
+
+      @include respond(tab-port) {
+        top : 0;
+        transform: scale(1.3);
+      }
+    }
+    &-p2 {
+      right: 0;
+      top: 2rem;
+      @include respond(tab-port) {
+        
+        top: -1rem;
+        z-index: 100;
+        transform: scale(1.2);
+      }
+    }
+    &-p3 {
+      left: 20%;
+      top: 10rem;
+      @include respond(tab-port) {
+        left: 0;
+        top: 0;
+        transform: scale(1.1);
+      }
+    }
+    &:hover {
+      z-index: 20;
+      box-shadow: 0 2.5rem 4rem rgba($color-black, 0.4);
+      outline: 1.5rem solid $color-darkgreen;
+      transform: scale(1.05);
+      transform: translateY(-1rem);
+    }
+  }
+  &:hover &-photo:not(:hover) {
+    transform: scale(0.95);
+  }
+}
